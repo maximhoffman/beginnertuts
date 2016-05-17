@@ -16,7 +16,7 @@ import fetch from './lib/fetch';
 const getRemote = (slot) => ({
   name: slot || 'production',
   url: `git@github.com:maximhoffman/beginnertuts.git`,
-  website: `https://beginnertuts.herokuapp.com/`,
+  website: `http://beginnertuts.herokuapp.com/`,
 });
 
 /**
