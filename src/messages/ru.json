@@ -2,7 +2,7 @@
   {
     "id": "header.banner.desc",
     "defaultMessage": "Complex web apps made easy",
-    "message": "Komplexní aplikace jednodušše",
+    "message": "Тест",
     "files": [
       "src/components/Header/Header.js"
     ]
@@ -10,7 +10,7 @@
   {
     "id": "header.banner.title",
     "defaultMessage": "React",
-    "message": "React",
+    "message": "",
     "files": [
       "src/components/Header/Header.js"
     ]
@@ -18,7 +18,7 @@
   {
     "id": "header.brand",
     "defaultMessage": "Your Company Brand",
-    "message": "Vaše firma",
+    "message": "",
     "files": [
       "src/components/Header/Header.js"
     ]
@@ -26,7 +26,7 @@
   {
     "id": "navigation.about",
     "defaultMessage": "About",
-    "message": "O nás",
+    "message": "",
     "files": [
       "src/components/Navigation/Navigation.js"
     ]
@@ -34,7 +34,7 @@
   {
     "id": "navigation.contact",
     "defaultMessage": "Contact",
-    "message": "Kontakt",
+    "message": "",
     "files": [
       "src/components/Navigation/Navigation.js"
     ]
@@ -42,7 +42,7 @@
   {
     "id": "navigation.login",
     "defaultMessage": "Log in",
-    "message": "Přihlásit",
+    "message": "",
     "files": [
       "src/components/Navigation/Navigation.js"
     ]
@@ -50,7 +50,7 @@
   {
     "id": "navigation.signup",
     "defaultMessage": "Sign up",
-    "message": "Registrace",
+    "message": "",
     "files": [
       "src/components/Navigation/Navigation.js"
     ]
@@ -58,7 +58,7 @@
   {
     "id": "navigation.separator.or",
     "defaultMessage": "or",
-    "message": "nebo",
+    "message": "",
     "files": [
       "src/components/Navigation/Navigation.js"
     ]

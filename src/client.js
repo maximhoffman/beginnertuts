@@ -21,9 +21,9 @@ import Provide from './components/Provide';
 import { addLocaleData } from 'react-intl';
 
 import en from 'react-intl/locale-data/en';
-import cs from 'react-intl/locale-data/cs';
+import ru from 'react-intl/locale-data/ru';
 
-[en, cs].forEach(addLocaleData);
+[en, ru].forEach(addLocaleData);
 
 const context = {
   store: null,
