@@ -165,6 +165,7 @@ module.exports =
   // Tell any CSS tooling (such as Material UI) to use all vendor prefixes if the
   // user agent is not known.
   // -----------------------------------------------------------------------------
+  // eslint-disable-line import/no-unresolved
   global.navigator = global.navigator || {};
   global.navigator.userAgent = global.navigator.userAgent || 'all';
   
@@ -240,7 +241,8 @@ module.exports =
                       case 0:
                         css = [];
                         statusCode = 200;
-                        template = __webpack_require__(126);
+                        template = __webpack_require__(126); // eslint-disable-line global-require
+  
                         locale = req.language;
                         data = {
                           lang: locale,
@@ -283,7 +285,7 @@ module.exports =
                             store: store,
                             insertCss: function insertCss(styles) {
                               return css.push(styles._getCss());
-                            },
+                            }, // eslint-disable-line no-underscore-dangle
                             setTitle: function setTitle(value) {
                               return data.title = value;
                             },
@@ -363,7 +365,7 @@ module.exports =
   app.use(function (err, req, res, next) {
     // eslint-disable-line no-unused-vars
     console.log(pe.render(err)); // eslint-disable-line no-console
-    var template = __webpack_require__(128);
+    var template = __webpack_require__(128); // eslint-disable-line global-require
     var statusCode = err.status || 500;
     res.status(statusCode);
     res.send(template({
@@ -642,6 +644,7 @@ module.exports =
     profileFields: ['name', 'email', 'link', 'locale', 'timezone'],
     passReqToCallback: true
   }, function (req, accessToken, refreshToken, profile, done) {
+    /* eslint-disable no-underscore-dangle */
     var loginName = 'facebook';
     var claimType = 'urn:facebook:access_token';
     var fooBar = function () {
@@ -2474,7 +2477,20 @@ module.exports =
   
   var _LanguageSwitcher2 = _interopRequireDefault(_LanguageSwitcher);
   
+  var _logoSmall = __webpack_require__(84);
+  
+  var _logoSmall2 = _interopRequireDefault(_logoSmall);
+  
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
   
   var messages = (0, _reactIntl.defineMessages)({
     brand: {
@@ -2492,16 +2508,16 @@ module.exports =
       defaultMessage: 'Complex web apps made easy',
       description: 'Description in header'
     }
-  }); /**
-       * React Starter Kit (https://www.reactstarterkit.com/)
-       *
-       * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-       *
-       * This source code is licensed under the MIT license found in the
-       * LICENSE.txt file in the root directory of this source tree.
-       */
+  });
   
-  var _ref = (0, _jsx3.default)(_LanguageSwitcher2.default, {});
+  var _ref = (0, _jsx3.default)('img', {
+    src: _logoSmall2.default,
+    width: '38',
+    height: '38',
+    alt: 'React'
+  });
+  
+  var _ref2 = (0, _jsx3.default)(_LanguageSwitcher2.default, {});
   
   function Header() {
     return (0, _jsx3.default)('div', {
@@ -2513,14 +2529,9 @@ module.exports =
     }), (0, _jsx3.default)(_Link2.default, {
       className: _Header2.default.brand,
       to: '/'
-    }, void 0, (0, _jsx3.default)('img', {
-      src: __webpack_require__(84),
-      width: '38',
-      height: '38',
-      alt: 'React'
-    }), (0, _jsx3.default)('span', {
+    }, void 0, _ref, (0, _jsx3.default)('span', {
       className: _Header2.default.brandTxt
-    }, void 0, _react2.default.createElement(_reactIntl.FormattedMessage, messages.brand))), _ref, (0, _jsx3.default)('div', {
+    }, void 0, _react2.default.createElement(_reactIntl.FormattedMessage, messages.brand))), _ref2, (0, _jsx3.default)('div', {
       className: _Header2.default.banner
     }, void 0, (0, _jsx3.default)('h1', {
       className: _Header2.default.bannerTitle
@@ -2573,18 +2584,18 @@ module.exports =
   
   
   // module
-  exports.push([module.id, ".I-DI{background:#373277;color:#fff}._3vUf{margin:0 auto;padding:20px 0;max-width:1000px}._2Fq7{color:#92e5fc;text-decoration:none;font-size:1.75em}._16t7{margin-left:10px}._99gq{float:right;margin-top:6px}._37r6{text-align:center}._3w2c{margin:0;padding:10px;font-weight:400;font-size:4em;line-height:1em}._1pLk{padding:0;color:hsla(0,0%,100%,.5);font-size:1.25em;margin:0}", ""]);
+  exports.push([module.id, "._3Gi4{background:#373277;color:#fff}._1rGb{margin:0 auto;padding:20px 0;max-width:1000px}._19ln{color:#92e5fc;text-decoration:none;font-size:1.75em}._2mix{margin-left:10px}._1zCy{float:right;margin-top:6px}._2Lc2{text-align:center}._2Qzp{margin:0;padding:10px;font-weight:400;font-size:4em;line-height:1em}._3mmk{padding:0;color:hsla(0,0%,100%,.5);font-size:1.25em;margin:0}", ""]);
   
   // exports
   exports.locals = {
-  	"root": "I-DI",
-  	"container": "_3vUf",
-  	"brand": "_2Fq7",
-  	"brandTxt": "_16t7",
-  	"nav": "_99gq",
-  	"banner": "_37r6",
-  	"bannerTitle": "_3w2c",
-  	"bannerDesc": "_1pLk"
+  	"root": "_3Gi4",
+  	"container": "_1rGb",
+  	"brand": "_19ln",
+  	"brandTxt": "_2mix",
+  	"nav": "_1zCy",
+  	"banner": "_2Lc2",
+  	"bannerTitle": "_2Qzp",
+  	"bannerDesc": "_3mmk"
   };
 
 /***/ },
@@ -2906,14 +2917,14 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "._2ayR{margin:0}._1WIn{display:inline-block;padding:3px 8px;text-decoration:none;font-size:1.125em}._1WIn,._1WIn:active,._1WIn:visited{color:hsla(0,0%,100%,.6)}._1uEN,._1WIn:hover{color:#fff}._1uEN{margin-right:8px;margin-left:8px;border-radius:3px;background:rgba(0,0,0,.15)}._1uEN:hover{background:rgba(0,0,0,.3)}.kvof{color:hsla(0,0%,100%,.3)}", ""]);
+  exports.push([module.id, ".Kev6{margin:0}._1-rh{display:inline-block;padding:3px 8px;text-decoration:none;font-size:1.125em}._1-rh,._1-rh:active,._1-rh:visited{color:hsla(0,0%,100%,.6)}._1-rh:hover,.g6k6{color:#fff}.g6k6{margin-right:8px;margin-left:8px;border-radius:3px;background:rgba(0,0,0,.15)}.g6k6:hover{background:rgba(0,0,0,.3)}._2KA9{color:hsla(0,0%,100%,.3)}", ""]);
   
   // exports
   exports.locals = {
-  	"root": "_2ayR",
-  	"link": "_1WIn",
-  	"highlight": "_1uEN",
-  	"spacer": "kvof"
+  	"root": "Kev6",
+  	"link": "_1-rh",
+  	"highlight": "g6k6",
+  	"spacer": "_2KA9"
   };
 
 /***/ },
@@ -3207,14 +3218,14 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "._3IS_{background:#f5f5f5;color:#333}.GVi6{margin:0 auto;padding:20px 8px;max-width:1000px;text-align:center;font-size:1.5em}._3b_c,._3b_c:active,._3b_c:hover,._3b_c:visited{color:#333;text-decoration:none}._3b_c:hover{text-decoration:underline}._2OGr{padding-right:15px;padding-left:15px}", ""]);
+  exports.push([module.id, "._2NP0{background:#f5f5f5;color:#333}._2AyN{margin:0 auto;padding:20px 8px;max-width:1000px;text-align:center;font-size:1.5em}._17M0,._17M0:active,._17M0:hover,._17M0:visited{color:#333;text-decoration:none}._17M0:hover{text-decoration:underline}._2n9Q{padding-right:15px;padding-left:15px}", ""]);
   
   // exports
   exports.locals = {
-  	"root": "_3IS_",
-  	"container": "GVi6",
-  	"link": "_3b_c",
-  	"spacer": "_2OGr"
+  	"root": "_2NP0",
+  	"container": "_2AyN",
+  	"link": "_17M0",
+  	"spacer": "_2n9Q"
   };
 
 /***/ },
@@ -3311,16 +3322,16 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "._29jY{background:#333;color:#fff}._3-6F{margin:0 auto;padding:20px 15px;max-width:1000px;text-align:center}._2wXL{color:hsla(0,0%,100%,.5)}._1Sxe,.YD4V{color:hsla(0,0%,100%,.3)}._2wXL,.wQJK{padding:2px 5px;font-size:1em}.wQJK,.wQJK:active,.wQJK:visited{color:hsla(0,0%,100%,.6);text-decoration:none}.wQJK:hover{color:#fff}", ""]);
+  exports.push([module.id, "._3Jih{background:#333;color:#fff}.n1bV{margin:0 auto;padding:20px 15px;max-width:1000px;text-align:center}._2mr6{color:hsla(0,0%,100%,.5)}._3HO-,._9iT6{color:hsla(0,0%,100%,.3)}._1sUk,._2mr6{padding:2px 5px;font-size:1em}._1sUk,._1sUk:active,._1sUk:visited{color:hsla(0,0%,100%,.6);text-decoration:none}._1sUk:hover{color:#fff}", ""]);
   
   // exports
   exports.locals = {
-  	"root": "_29jY",
-  	"container": "_3-6F",
-  	"text": "_2wXL",
-  	"textMuted": "_1Sxe _2wXL",
-  	"spacer": "YD4V",
-  	"link": "wQJK"
+  	"root": "_3Jih",
+  	"container": "n1bV",
+  	"text": "_2mr6",
+  	"textMuted": "_9iT6 _2mr6",
+  	"spacer": "_3HO-",
+  	"link": "_1sUk"
   };
 
 /***/ },
@@ -3529,17 +3540,17 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "._2Xla{padding-left:20px;padding-right:20px}._1N8k{margin:0 auto;padding:0 0 40px;max-width:1000px}._2-z8{padding:0}._1fvP{list-style-type:none;padding-bottom:6px}._38Er{font-size:1.125em}._2b5_,._38Er{display:block}._3ccq{font-size:.8em;color:#777}", ""]);
+  exports.push([module.id, "._2IMq{padding-left:20px;padding-right:20px}._2Yej{margin:0 auto;padding:0 0 40px;max-width:1000px}.oTyG{padding:0}._3Ob1{list-style-type:none;padding-bottom:6px}._1yWV{font-size:1.125em}._1yWV,._21LX{display:block}._2Mwy{font-size:.8em;color:#777}", ""]);
   
   // exports
   exports.locals = {
-  	"root": "_2Xla",
-  	"container": "_1N8k",
-  	"news": "_2-z8",
-  	"newsItem": "_1fvP",
-  	"newsTitle": "_38Er",
-  	"newsDesc": "_2b5_",
-  	"publishedDate": "_3ccq"
+  	"root": "_2IMq",
+  	"container": "_2Yej",
+  	"news": "oTyG",
+  	"newsItem": "_3Ob1",
+  	"newsTitle": "_1yWV",
+  	"newsDesc": "_21LX",
+  	"publishedDate": "_2Mwy"
   };
 
 /***/ },
@@ -3625,13 +3636,15 @@ module.exports =
   
   var _ref = (0, _jsx3.default)('h1', {}, void 0, title);
   
+  var _ref2 = (0, _jsx3.default)('p', {}, void 0, '...');
+  
   function Contact(props, context) {
     context.setTitle(title);
     return (0, _jsx3.default)('div', {
       className: _Contact2.default.root
     }, void 0, (0, _jsx3.default)('div', {
       className: _Contact2.default.container
-    }, void 0, _ref, (0, _jsx3.default)('p', {}, void 0, '...')));
+    }, void 0, _ref, _ref2));
   }
   
   Contact.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
@@ -3664,12 +3677,12 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "._2Pu2{padding-left:20px;padding-right:20px}._3KyL{margin:0 auto;padding:0 0 40px;max-width:1000px}", ""]);
+  exports.push([module.id, "._1G9o{padding-left:20px;padding-right:20px}._2TnC{margin:0 auto;padding:0 0 40px;max-width:1000px}", ""]);
   
   // exports
   exports.locals = {
-  	"root": "_2Pu2",
-  	"container": "_3KyL"
+  	"root": "_1G9o",
+  	"container": "_2TnC"
   };
 
 /***/ },
@@ -3759,6 +3772,12 @@ module.exports =
     d: 'M22 16l1-5h-5V7c0-1.544.784-2 3-2h2V0h-4c-4.072 0-7 2.435-7 7v4H7v5h5v14h6V16h4z'
   });
   
+  var _ref3 = (0, _jsx3.default)('span', {}, void 0, 'Log in with Facebook');
+  
+  var _ref4 = (0, _jsx3.default)('span', {}, void 0, 'Log in with Google');
+  
+  var _ref5 = (0, _jsx3.default)('span', {}, void 0, 'Log in with Twitter');
+  
   function Login(props, context) {
     context.setTitle(title);
     return (0, _jsx3.default)('div', {
@@ -3778,7 +3797,7 @@ module.exports =
       height: '30',
       viewBox: '0 0 30 30',
       xmlns: 'http://www.w3.org/2000/svg'
-    }, void 0, _ref2), (0, _jsx3.default)('span', {}, void 0, 'Log in with Facebook'))), (0, _jsx3.default)('div', {
+    }, void 0, _ref2), _ref3)), (0, _jsx3.default)('div', {
       className: _Login2.default.formGroup
     }, void 0, (0, _jsx3.default)('a', {
       className: _Login2.default.google,
@@ -3790,8 +3809,8 @@ module.exports =
       viewBox: '0 0 30 30',
       xmlns: 'http://www.w3.org/2000/svg'
     }, void 0, (0, _jsx3.default)('path', {
-      d: 'M30 13h-4V9h-2v4h-4v2h4v4h2v-4h4m-15 2s-2-1.15-2-2c0 0-.5-1.828 1-3 ' + '1.537-1.2 3-3.035 3-5 0-2.336-1.046-5-3-6h3l2.387-1H10C5.835 0 2 3.345 2 7c0 ' + '3.735 2.85 6.56 7.086 6.56.295 0 .58-.006.86-.025-.273.526-.47 1.12-.47 1.735 ' + '0 1.037.817 2.042 1.523 2.73H9c-5.16 0-9 2.593-9 6 0 3.355 4.87 6 10.03 6 5.882 ' + '0 9.97-3 9.97-7 0-2.69-2.545-4.264-5-6zm-4-4c-2.395 0-5.587-2.857-6-6C4.587 ' + '3.856 6.607.93 9 1c2.394.07 4.603 2.908 5.017 6.052C14.43 10.195 13 13 11 13zm-1 ' + '15c-3.566 0-7-1.29-7-4 0-2.658 3.434-5.038 7-5 .832.01 2 0 2 0 1 0 2.88.88 4 2 1 ' + '1 1 2.674 1 3 0 3-1.986 4-7 4z'
-    })), (0, _jsx3.default)('span', {}, void 0, 'Log in with Google'))), (0, _jsx3.default)('div', {
+      d: 'M30 13h-4V9h-2v4h-4v2h4v4h2v-4h4m-15 2s-2-1.15-2-2c0 0-.5-1.828 1-3 ' + '1.537-1.2 3-3.035 3-5 0-2.336-1.046-5-3-6h3l2.387-1H10C5.835 0 2 3.345 2 7c0 ' + '3.735 2.85 6.56 7.086 6.56.295 0 .58-.006.86-.025-.273.526-.47 1.12-.47 1.735 ' + '0 1.037.817 2.042 1.523 2.73H9c-5.16 0-9 2.593-9 6 0 3.355 4.87 6 10.03 6 5.882 ' + '0 9.97-3 9.97-7 0-2.69-2.545-4.264-5-6zm-4-4c-2.395 0-5.587-2.857-6-6C4.587 ' + '3.856 6.607.93 9 1c2.394.07 4.603 2.908 5.017 6.052C14.43 10.195 13 13 11 ' + '13zm-1 15c-3.566 0-7-1.29-7-4 0-2.658 3.434-5.038 7-5 .832.01 2 0 2 0 1 0 ' + '2.88.88 4 2 1 1 1 2.674 1 3 0 3-1.986 4-7 4z'
+    })), _ref4)), (0, _jsx3.default)('div', {
       className: _Login2.default.formGroup
     }, void 0, (0, _jsx3.default)('a', {
       className: _Login2.default.twitter,
@@ -3804,7 +3823,7 @@ module.exports =
       xmlns: 'http://www.w3.org/2000/svg'
     }, void 0, (0, _jsx3.default)('path', {
       d: 'M30 6.708c-1.105.49-2.756 1.143-4 1.292 1.273-.762 2.54-2.56 ' + '3-4-.97.577-2.087 1.355-3.227 1.773L25 5c-1.12-1.197-2.23-2-4-2-3.398 0-6 ' + '2.602-6 6 0 .4.047.7.11.956L15 10C9 10 5.034 8.724 2 5c-.53.908-1 1.872-1 ' + '3 0 2.136 1.348 3.894 3 5-1.01-.033-2.17-.542-3-1 0 2.98 4.186 6.432 7 7-1 ' + '1-4.623.074-5 0 .784 2.447 3.31 3.95 6 4-2.105 1.648-4.647 2.51-7.53 2.51-.5 ' + '0-.988-.03-1.47-.084C2.723 27.17 6.523 28 10 28c11.322 0 17-8.867 17-17 ' + '0-.268.008-.736 0-1 1.2-.868 2.172-2.058 3-3.292z'
-    })), (0, _jsx3.default)('span', {}, void 0, 'Log in with Twitter'))), (0, _jsx3.default)('strong', {
+    })), _ref5)), (0, _jsx3.default)('strong', {
       className: _Login2.default.lineThrough
     }, void 0, 'OR'), (0, _jsx3.default)('form', {
       method: 'post'
@@ -3867,22 +3886,22 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "._3Jn3{padding-left:20px;padding-right:20px}._3sgU{margin:0 auto;padding:0 0 40px;max-width:380px}._1dsj{font-size:1.25em}._3TBv{margin-bottom:15px}._1evm{display:inline-block;margin-bottom:5px;max-width:100%;font-weight:700}.a5-F{display:block;box-sizing:border-box;padding:10px 16px;width:100%;height:46px;outline:0;border:1px solid #ccc;border-radius:0;background:#fff;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);color:#616161;font-size:18px;line-height:1.3333333;-webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}.a5-F:focus{border-color:#0074c2;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(0,116,194,.6)}.NnDU{display:block;box-sizing:border-box;margin:0;padding:10px 16px;width:100%;outline:0;border:1px solid #373277;border-radius:0;background:#373277;color:#fff;text-align:center;text-decoration:none;font-size:18px;line-height:1.3333333;cursor:pointer}.NnDU:hover{background:rgba(54,50,119,.8)}.NnDU:focus{border-color:#0074c2;box-shadow:0 0 8px rgba(0,116,194,.6)}.lTnE{border-color:#3b5998;background:#3b5998}.lTnE:hover{background:#2d4373}._29Wu{border-color:#dd4b39;background:#dd4b39}._29Wu:hover{background:#c23321}._2u--{border-color:#55acee;background:#55acee}._2u--:hover{background:#2795e9}._2vTE{display:inline-block;margin:-2px 12px -2px 0;width:20px;height:20px;vertical-align:middle;fill:currentColor}._28Vc{position:relative;z-index:1;display:block;margin-bottom:15px;width:100%;color:#757575;text-align:center;font-size:80%}._28Vc:before{top:50%;left:50%;z-index:-1;margin-top:-5px;margin-left:-20px;width:40px;height:10px;background-color:#fff}._28Vc:after,._28Vc:before{position:absolute;content:''}._28Vc:after{top:49%;z-index:-2;display:block;width:100%;border-bottom:1px solid #ddd}", ""]);
+  exports.push([module.id, ".rQNQ{padding-left:20px;padding-right:20px}._2BVu{margin:0 auto;padding:0 0 40px;max-width:380px}._1mJB{font-size:1.25em}._25Ti{margin-bottom:15px}._2G0a{display:inline-block;margin-bottom:5px;max-width:100%;font-weight:700}._1bTr{display:block;box-sizing:border-box;padding:10px 16px;width:100%;height:46px;outline:0;border:1px solid #ccc;border-radius:0;background:#fff;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);color:#616161;font-size:18px;line-height:1.3333333;-webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}._1bTr:focus{border-color:#0074c2;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(0,116,194,.6)}._11e1{display:block;box-sizing:border-box;margin:0;padding:10px 16px;width:100%;outline:0;border:1px solid #373277;border-radius:0;background:#373277;color:#fff;text-align:center;text-decoration:none;font-size:18px;line-height:1.3333333;cursor:pointer}._11e1:hover{background:rgba(54,50,119,.8)}._11e1:focus{border-color:#0074c2;box-shadow:0 0 8px rgba(0,116,194,.6)}._2nZ7{border-color:#3b5998;background:#3b5998}._2nZ7:hover{background:#2d4373}._23Hc{border-color:#dd4b39;background:#dd4b39}._23Hc:hover{background:#c23321}.AJde{border-color:#55acee;background:#55acee}.AJde:hover{background:#2795e9}._34kk{display:inline-block;margin:-2px 12px -2px 0;width:20px;height:20px;vertical-align:middle;fill:currentColor}.UpbG{position:relative;z-index:1;display:block;margin-bottom:15px;width:100%;color:#757575;text-align:center;font-size:80%}.UpbG:before{top:50%;left:50%;z-index:-1;margin-top:-5px;margin-left:-20px;width:40px;height:10px;background-color:#fff}.UpbG:after,.UpbG:before{position:absolute;content:''}.UpbG:after{top:49%;z-index:-2;display:block;width:100%;border-bottom:1px solid #ddd}", ""]);
   
   // exports
   exports.locals = {
-  	"root": "_3Jn3",
-  	"container": "_3sgU",
-  	"lead": "_1dsj",
-  	"formGroup": "_3TBv",
-  	"label": "_1evm",
-  	"input": "a5-F",
-  	"button": "NnDU",
-  	"facebook": "lTnE NnDU",
-  	"google": "_29Wu NnDU",
-  	"twitter": "_2u-- NnDU",
-  	"icon": "_2vTE",
-  	"lineThrough": "_28Vc"
+  	"root": "rQNQ",
+  	"container": "_2BVu",
+  	"lead": "_1mJB",
+  	"formGroup": "_25Ti",
+  	"label": "_2G0a",
+  	"input": "_1bTr",
+  	"button": "_11e1",
+  	"facebook": "_2nZ7 _11e1",
+  	"google": "_23Hc _11e1",
+  	"twitter": "AJde _11e1",
+  	"icon": "_34kk",
+  	"lineThrough": "UpbG"
   };
 
 /***/ },
@@ -3968,13 +3987,15 @@ module.exports =
   
   var _ref = (0, _jsx3.default)('h1', {}, void 0, title);
   
+  var _ref2 = (0, _jsx3.default)('p', {}, void 0, '...');
+  
   function Register(props, context) {
     context.setTitle(title);
     return (0, _jsx3.default)('div', {
       className: _Register2.default.root
     }, void 0, (0, _jsx3.default)('div', {
       className: _Register2.default.container
-    }, void 0, _ref, (0, _jsx3.default)('p', {}, void 0, '...')));
+    }, void 0, _ref, _ref2));
   }
   
   Register.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
@@ -4007,12 +4028,12 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "._3zKC{padding-left:20px;padding-right:20px}._1zuA{margin:0 auto;padding:0 0 40px;max-width:1000px}", ""]);
+  exports.push([module.id, "._1hu0{padding-left:20px;padding-right:20px}.OjhI{margin:0 auto;padding:0 0 40px;max-width:1000px}", ""]);
   
   // exports
   exports.locals = {
-  	"root": "_3zKC",
-  	"container": "_1zuA"
+  	"root": "_1hu0",
+  	"container": "OjhI"
   };
 
 /***/ },
@@ -4238,12 +4259,12 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "._2dPi{padding-left:20px;padding-right:20px}._2ev8{margin:0 auto;padding:0 0 40px;max-width:1000px}", ""]);
+  exports.push([module.id, ".aWU5{padding-left:20px;padding-right:20px}._2OJN{margin:0 auto;padding:0 0 40px;max-width:1000px}", ""]);
   
   // exports
   exports.locals = {
-  	"root": "_2dPi",
-  	"container": "_2ev8"
+  	"root": "aWU5",
+  	"container": "_2OJN"
   };
 
 /***/ },
@@ -4383,7 +4404,7 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "*{line-height:1.2;margin:0}html{color:#888;display:table;font-family:sans-serif;height:100%;text-align:center;width:100%}body{display:table-cell;vertical-align:middle;margin:2em auto}h1{color:#555;font-size:2em;font-weight:400}p{margin:0 auto;width:280px}pre{text-align:left;margin-top:2rem}@media only screen and (max-width:280px){body,p{width:95%}h1{font-size:1.5em;margin:0 0 .3em}}", ""]);
+  exports.push([module.id, "*{line-height:1.2;margin:0}html{color:#888;display:table;font-family:sans-serif;height:100%;text-align:center;width:100%}body{display:table-cell;vertical-align:middle;margin:2em auto}h1{color:#555;font-size:2em;font-weight:400}p{margin:0 auto;width:280px}pre{text-align:left;margin-top:32px;margin-top:2rem}@media only screen and (max-width:280px){body,p{width:95%}h1{font-size:1.5em;margin:0 0 .3em}}", ""]);
   
   // exports
 
